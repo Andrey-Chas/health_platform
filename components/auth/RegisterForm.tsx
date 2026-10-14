@@ -1,14 +1,21 @@
 "use client";
 
-const RegisterForm = () => {
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
+import { useActionState } from "react";
+import { registerUser } from "@/lib/auth/actions";
 
-    console.log("Register form submitted");
-  };
+const initialState = {
+  success: false,
+  message: "",
+};
+
+const RegisterForm = () => {
+  const [state, formAction, isPending] = useActionState(
+    registerUser,
+    initialState,
+  );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={formAction}>
       <div>
         <label htmlFor="firstName">First name</label>
         <input id="firstName" name="firstName" type="text" required />
@@ -39,7 +46,11 @@ const RegisterForm = () => {
         />
       </div>
 
-      <button type="submit">Create account</button>
+      {state.message && <p role="status">{state.message}</p>}
+
+      <button type="submit" disabled={isPending}>
+        {isPending ? "Creating account..." : "Create account"}
+      </button>
     </form>
   );
 };

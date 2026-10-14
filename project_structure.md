@@ -1,13 +1,13 @@
 # 📁 health_platform - Project Structure
 
-*Generated on: 10/8/2026, 6:45:09 PM*
+*Generated on: 10/9/2026, 3:22:09 PM*
 
 ## 📋 Quick Overview
 
 | Metric | Value |
 |--------|-------|
-| 📄 Total Files | 21 |
-| 📁 Total Folders | 6 |
+| 📄 Total Files | 24 |
+| 📁 Total Folders | 9 |
 | 🌳 Max Depth | 3 levels |
 | 🛠️ Tech Stack | React, Next.js, TypeScript, CSS, Node.js |
 
@@ -25,34 +25,34 @@
 
 ### By File Type
 
-- 🎨 **.svg** (SVG images): 5 files (23.8%)
-- ⚛️ **.tsx** (React TypeScript files): 4 files (19.0%)
-- 📖 **.md** (Markdown files): 3 files (14.3%)
-- ⚙️ **.json** (JSON files): 3 files (14.3%)
-- 🔷 **.ts** (TypeScript files): 2 files (9.5%)
-- 🚫 **.gitignore** (Git ignore): 1 files (4.8%)
-- 🖼️ **.ico** (Icon files): 1 files (4.8%)
-- 🎨 **.css** (Stylesheets): 1 files (4.8%)
-- 📄 **.mjs** (Other files): 1 files (4.8%)
+- ⚛️ **.tsx** (React TypeScript files): 6 files (25.0%)
+- 🎨 **.svg** (SVG images): 5 files (20.8%)
+- 📖 **.md** (Markdown files): 3 files (12.5%)
+- 🔷 **.ts** (TypeScript files): 3 files (12.5%)
+- ⚙️ **.json** (JSON files): 3 files (12.5%)
+- 🚫 **.gitignore** (Git ignore): 1 files (4.2%)
+- 🖼️ **.ico** (Icon files): 1 files (4.2%)
+- 🎨 **.css** (Stylesheets): 1 files (4.2%)
+- 📄 **.mjs** (Other files): 1 files (4.2%)
 
 ### By Category
 
-- **Assets**: 6 files (28.6%)
-- **React**: 4 files (19.0%)
-- **Docs**: 3 files (14.3%)
-- **Config**: 3 files (14.3%)
-- **TypeScript**: 2 files (9.5%)
-- **DevOps**: 1 files (4.8%)
-- **Styles**: 1 files (4.8%)
-- **Other**: 1 files (4.8%)
+- **React**: 6 files (25.0%)
+- **Assets**: 6 files (25.0%)
+- **Docs**: 3 files (12.5%)
+- **TypeScript**: 3 files (12.5%)
+- **Config**: 3 files (12.5%)
+- **DevOps**: 1 files (4.2%)
+- **Styles**: 1 files (4.2%)
+- **Other**: 1 files (4.2%)
 
 ### 📁 Largest Directories
 
-- **root**: 21 files
+- **root**: 24 files
 - **app**: 6 files
 - **public**: 5 files
 - **app\(auth)**: 2 files
-- **app\(auth)\login**: 1 files
+- **components\auth**: 2 files
 
 ## 🌳 Directory Structure
 
@@ -71,7 +71,13 @@ health_platform/
 │   ├── ⚛️ layout.tsx
 │   └── ⚛️ page.tsx
 ├── 🧩 components/
+│   └── 📂 auth/
+│   │   ├── ⚛️ LoginForm.tsx
+│   │   └── ⚛️ RegisterForm.tsx
 ├── 🔵 🔍 **eslint.config.mjs**
+├── 📚 lib/
+│   └── 📂 auth/
+│   │   └── 🔷 actions.ts
 ├── 🔷 next-env.d.ts
 ├── 🟡 ▲ **next.config.ts**
 ├── 🟡 🔒 **package-lock.json**

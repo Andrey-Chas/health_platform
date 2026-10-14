@@ -4,7 +4,13 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("Login form submitted");
+    const formData = new FormData(e.currentTarget);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
 
   return (
