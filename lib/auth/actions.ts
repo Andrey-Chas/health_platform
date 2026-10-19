@@ -1,5 +1,8 @@
 "use server";
 
+import bcrypt from "bcryptjs";
+import prisma from "@/lib/prisma";
+
 export type AuthActionState = {
     success: boolean;
     message: string;
@@ -40,8 +43,35 @@ export async function registerUser(
         };
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+
+    const existingUser = await prisma.user.findUnique({
+        where: {
+            email: normalizedEmail,
+        },
+    });
+
+    if (existingUser) {
+        return {
+            success: false,
+            message: "An account with this email already exists.",
+        };
+    }
+
+    const passwordHash = await bcrypt.hash(password, 12);
+
+    await prisma.user.create({
+        data: {
+            firstName: firstName.trim(),
+            lastName: lastName.trim(),
+            email: normalizedEmail,
+            passwordHash,
+            role: "CLIENT",
+        },
+    });
+
     return {
         success: true,
-        message: "Registration data validated successfully.",
+        message: "Account created successfully.",
     };
 }
