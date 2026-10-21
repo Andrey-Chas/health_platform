@@ -1,20 +1,21 @@
 "use client";
 
+import { useActionState } from "react";
+import { loginUser } from "@/lib/auth/login";
+
+const initialState = {
+  success: false,
+  message: "",
+};
+
 const LoginForm = () => {
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
+  const [state, formAction, isPending] = useActionState(
+    loginUser,
+    initialState,
+  );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={formAction}>
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" name="email" type="email" required />
@@ -25,7 +26,11 @@ const LoginForm = () => {
         <input id="password" name="password" type="password" required />
       </div>
 
-      <button type="submit">Log in</button>
+      {state.message && <p role="status">{state.message}</p>}
+
+      <button type="submit" disabled={isPending}>
+        {isPending ? "Logging in..." : "Log in"}
+      </button>
     </form>
   );
 };
