@@ -1,11 +1,13 @@
+import AuthLayout from "@/components/auth/AuthLayout";
 import LoginForm from "@/components/auth/LoginForm";
 
-const LoginPage = () => {
+export default function LoginPage() {
   return (
-    <div>
+    <AuthLayout
+      title="Welcome back"
+      description="Sign in to access your Health Platform account."
+    >
       <LoginForm />
-    </div>
+    </AuthLayout>
   );
-};
-
-export default LoginPage;
+}

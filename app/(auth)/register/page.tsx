@@ -1,10 +1,16 @@
+import AuthLayout from "@/components/auth/AuthLayout";
 import RegisterForm from "@/components/auth/RegisterForm";
 
 const RegisterPage = () => {
   return (
-    <div>
-      <RegisterForm />
-    </div>
+    <AuthLayout
+      title="Create an account"
+      description="Sign up to start managing your health information."
+    >
+      <div>
+        <RegisterForm />
+      </div>
+    </AuthLayout>
   );
 };
 
