@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 type AuthLayoutProps = {
   children: ReactNode;
@@ -10,11 +11,14 @@ type AuthLayoutProps = {
 const AuthLayout = ({ children, title, description }: AuthLayoutProps) => {
   return (
     <main className="min-h-svh bg-background lg:grid lg:grid-cols-2">
+      <div className="absolute right-6 top-6 z-20 sm:right-8 sm:top-8">
+        <ThemeToggle />
+      </div>
       {/* Brand / visual panel */}
       <section className="relative hidden min-h-svh overflow-hidden bg-muted lg:block">
         <div className="absolute inset-0 bg-[url('/images/auth-background.png')] bg-cover bg-center" />
 
-        <div className="absolute inset-0 bg-transparent dark:bg-black/20" />
+        <div className="absolute inset-0 bg-transparent dark:bg-black/30" />
 
         <div className="relative z-10 flex min-h-svh flex-col p-10 xl:p-12">
           {/* Brand */}
